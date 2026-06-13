@@ -8,5 +8,5 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./certs:/etc/nginx/certs:ro
     restart: always
