@@ -6,6 +6,7 @@
 dist
 coverage
 README.md
+data/
 services/api/.venv
 services/api/.pytest_cache
 services/api/**/__pycache__
