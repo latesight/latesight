@@ -131,7 +131,7 @@ const DEFAULT_RESULT: DictionaryResponse = {
   origin: "",
   synonyms: ["视觉", "视力", "觇孔", "瞄准镜", "视野", "瞥见", "一瞥", "发现"],
   antonyms: [],
-  learning_tip: "从名词"视力"的含义开始学习。"
+  learning_tip: `从名词"视力"的含义开始学习。`
 };
 
 const PART_OF_SPEECH_LABELS: Record<string, string> = {
