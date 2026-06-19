@@ -6,7 +6,7 @@ import { SiteHeader } from "@latesight/ui/site-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Latesight",
+  title: "LateSight",
   description: "A personal hub for focused web tools.",
   icons: sharedSiteIcons
 };
@@ -29,13 +29,13 @@ export default function RootLayout({
       <body>
         <div className="site-shell">
           <SiteHeader
-            slogan="毅一世, 舞一时"
+            slogan="毅一世 舞一时"
             links={headerLinks}
             logoHref="/"
           />
           {children}
           <SiteFooter
-            legal="Copyright © 2026 Latesight. All rights reserved."
+            legal="Copyright © 2026 LateSight. All rights reserved."
             links={footerLinks}
           />
         </div>

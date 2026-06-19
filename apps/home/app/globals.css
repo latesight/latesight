@@ -1,3 +1,10 @@
+.home-site-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
 .panel-copy {
   margin: 0 0 16px;
   max-width: 560px;
@@ -9,13 +16,22 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 12px;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
 }
 
 .home-site-title__dot {
-  width: 12px;
-  height: 12px;
+  width: 22px;
+  height: 22px;
   border-radius: 999px;
   background: var(--color-accent-red);
   flex: 0 0 auto;
+}
+
+.home-site-domain {
+  color: var(--color-muted);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.2;
 }

@@ -34,6 +34,20 @@ class Settings(BaseSettings):
 
     dictionary_provider: str = Field(default="free_dictionary", alias="DICTIONARY_PROVIDER")
     merriam_webster_api_key: str = Field(default="", alias="MERRIAM_WEBSTER_API_KEY")
+    dictionary_rate_limit_anonymous_per_minute: int = Field(
+        default=12, alias="DICTIONARY_RATE_LIMIT_ANONYMOUS_PER_MINUTE"
+    )
+    dictionary_rate_limit_authenticated_per_minute: int = Field(
+        default=60, alias="DICTIONARY_RATE_LIMIT_AUTHENTICATED_PER_MINUTE"
+    )
+    dictionary_deepseek_budget_anonymous_per_day: int = Field(
+        default=3, alias="DICTIONARY_DEEPSEEK_BUDGET_ANONYMOUS_PER_DAY"
+    )
+    dictionary_deepseek_budget_authenticated_per_day: int = Field(
+        default=30, alias="DICTIONARY_DEEPSEEK_BUDGET_AUTHENTICATED_PER_DAY"
+    )
+    dictionary_search_lock_seconds: int = Field(default=15, alias="DICTIONARY_SEARCH_LOCK_SECONDS")
+    dictionary_search_lock_wait_ms: int = Field(default=1500, alias="DICTIONARY_SEARCH_LOCK_WAIT_MS")
 
     @property
     def is_development(self) -> bool:

@@ -30,6 +30,16 @@ class DeepSeekDictionaryEnricher:
         payload = await self._request_translation_payload(entry)
         return self._apply_translation_payload(entry, payload)
 
+    async def enrich_with_payload(self, entry: DictionarySearchResponse) -> tuple[DictionarySearchResponse, dict]:
+        if not self.enabled:
+            return entry, {}
+
+        payload = await self._request_translation_payload(entry)
+        return self._apply_translation_payload(entry, payload), payload
+
+    def apply_saved_payload(self, entry: DictionarySearchResponse, payload: dict) -> DictionarySearchResponse:
+        return self._apply_translation_payload(entry, payload)
+
     async def _request_translation_payload(self, entry: DictionarySearchResponse) -> dict:
         compact_entry = {
             "word": entry.word,

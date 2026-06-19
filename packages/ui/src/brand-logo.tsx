@@ -7,7 +7,7 @@ type BrandLogoProps = {
 export function BrandLogo({
   href = "/",
   imageSrc = "/brand/logo-header.png",
-  alt = "Latesight"
+  alt = "LateSight"
 }: BrandLogoProps) {
   return (
     <a className="brand-logo" href={href} aria-label={alt}>

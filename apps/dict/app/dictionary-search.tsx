@@ -32,19 +32,19 @@ type DictionarySuggestionResponse = {
 
 const DEFAULT_WORD = "resilience";
 const PART_OF_SPEECH_LABELS: Record<string, string> = {
-  noun: "名词",
-  verb: "动词",
-  adjective: "形容词",
-  adverb: "副词",
-  pronoun: "代词",
-  preposition: "介词",
-  conjunction: "连词",
-  interjection: "感叹词",
-  article: "冠词",
-  determiner: "限定词",
-  auxiliary: "助动词",
-  modal: "情态动词",
-  phrase: "短语"
+  noun: "Noun",
+  verb: "Verb",
+  adjective: "Adjective",
+  adverb: "Adverb",
+  pronoun: "Pronoun",
+  preposition: "Preposition",
+  conjunction: "Conjunction",
+  interjection: "Interjection",
+  article: "Article",
+  determiner: "Determiner",
+  auxiliary: "Auxiliary",
+  modal: "Modal",
+  phrase: "Phrase"
 };
 
 function getPartOfSpeechLabel(partOfSpeech: string) {
@@ -232,20 +232,6 @@ export function DictionarySearch() {
         </div>
       </form>
 
-      <div className="query-hint">
-        试试这些词：
-        {" "}
-        <button type="button" className="inline-chip" onClick={() => applySuggestion("resilience")}>
-          resilience
-        </button>
-        <button type="button" className="inline-chip" onClick={() => applySuggestion("serendipity")}>
-          serendipity
-        </button>
-        <button type="button" className="inline-chip" onClick={() => applySuggestion("clarity")}>
-          clarity
-        </button>
-      </div>
-
       {error ? <p className="status-message status-message--error">{error}</p> : null}
 
       {result ? (
@@ -257,8 +243,14 @@ export function DictionarySearch() {
             <div className="result-meta">
               {result.phonetic ? (
                 result.audio_url ? (
-                  <button className="pronunciation-button" type="button" onClick={handlePronunciationPlay}>
-                    {isPlayingAudio ? "播放中..." : result.phonetic}
+                  <button
+                    className={`pronunciation-button${isPlayingAudio ? " pronunciation-button--playing" : ""}`}
+                    type="button"
+                    onClick={handlePronunciationPlay}
+                    aria-label={isPlayingAudio ? `正在播放 ${result.word} 发音` : `播放 ${result.word} 发音`}
+                  >
+                    <span>{result.phonetic}</span>
+                    {isPlayingAudio ? <span className="pronunciation-button__indicator" aria-hidden="true" /> : null}
                   </button>
                 ) : (
                   <span>{result.phonetic}</span>
@@ -277,7 +269,7 @@ export function DictionarySearch() {
                     {definition.zh ? <p className="definition-english">{definition.en}</p> : null}
                     {definition.example ? (
                       <p className="definition-example">
-                        例句：{definition.example_zh || definition.example}
+                        Example: {definition.example_zh || definition.example}
                       </p>
                     ) : null}
                     {definition.example && definition.example_zh ? (
@@ -294,24 +286,24 @@ export function DictionarySearch() {
           {result.learning_tip ? (
             <div className="support-grid">
               <article className="surface-panel support-card">
-                <p className="meta-label">学习提示</p>
+                <p className="meta-label">Learning Tip</p>
                 <p>{result.learning_tip}</p>
               </article>
               <article className="surface-panel support-card">
-                <p className="meta-label">近义词</p>
-                <p>{result.synonyms.length ? result.synonyms.join(", ") : "暂无近义词数据。"}</p>
+                <p className="meta-label">Synonyms</p>
+                <p>{result.synonyms.length ? result.synonyms.join(", ") : "No synonym data available."}</p>
               </article>
               <article className="surface-panel support-card">
-                <p className="meta-label">反义词</p>
-                <p>{result.antonyms.length ? result.antonyms.join(", ") : "暂无反义词数据。"}</p>
+                <p className="meta-label">Antonyms</p>
+                <p>{result.antonyms.length ? result.antonyms.join(", ") : "No antonym data available."}</p>
               </article>
             </div>
           ) : null}
         </section>
       ) : (
         <div className="result-empty">
-          <p className="meta-label">准备就绪</p>
-          <p>输入单词并提交后，结果会出现在这里。</p>
+          <p className="meta-label">Ready</p>
+          <p>Enter a word and submit. Results will appear here.</p>
         </div>
       )}
     </div>

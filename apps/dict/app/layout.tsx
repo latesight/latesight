@@ -6,7 +6,7 @@ import { SiteHeader } from "@latesight/ui/site-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Latesight > Word Lens",
+  title: "LateSight > Word Lens",
   description: "A focused dictionary and word lookup site.",
   icons: sharedSiteIcons
 };
@@ -17,7 +17,7 @@ const headerLinks = [
 ];
 
 const footerLinks = [
-  { label: "Latesight", href: "https://latesight.com" },
+  { label: "LateSight", href: "https://latesight.com" },
   { label: "Dictionary", href: "/" },
   { label: "Lookup", href: "#lookup" }
 ];
@@ -33,14 +33,13 @@ export default function RootLayout({
         <div className="site-shell">
           <SiteHeader
             sectionKey="dict"
-            titleRoot="Latesight"
             titleCurrent="Word Lens"
             links={headerLinks}
             logoHref="https://latesight.com"
           />
           {children}
           <SiteFooter
-            legal="Copyright © 2026 Latesight. All rights reserved."
+            legal="Copyright © 2026 LateSight. All rights reserved."
             links={footerLinks}
           />
         </div>

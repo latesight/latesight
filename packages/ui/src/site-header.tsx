@@ -27,9 +27,14 @@ export function SiteHeader({
   logoHref
 }: SiteHeaderProps) {
   const activeKey = sectionKey ?? sectionLabel?.toLowerCase();
-  const visibleTitleRoot = titleRoot ?? "latesight";
+  const visibleTitleRoot = titleRoot?.trim();
   const visibleTitleCurrent = titleCurrent ?? sectionLabel ?? activeKey;
   const showMeta = Boolean(visibleTitleCurrent);
+  const showTitleRoot = Boolean(visibleTitleRoot);
+  const titleAriaLabel =
+    showTitleRoot && visibleTitleRoot
+      ? `${visibleTitleRoot} > ${visibleTitleCurrent}`
+      : visibleTitleCurrent;
 
   return (
     <header className="site-header">
@@ -40,9 +45,9 @@ export function SiteHeader({
           {showMeta ? (
             <div className="site-header__meta">
               {siteLabel ? <span className="site-header__eyebrow">{siteLabel}</span> : null}
-              <span className="site-header__title" aria-label={`${visibleTitleRoot} > ${visibleTitleCurrent}`}>
-                <span className="site-header__title-root">{visibleTitleRoot}</span>
-                <span className="site-header__title-separator">&gt;</span>
+              <span className="site-header__title" aria-label={titleAriaLabel}>
+                {showTitleRoot ? <span className="site-header__title-root">{visibleTitleRoot}</span> : null}
+                {showTitleRoot ? <span className="site-header__title-separator">&gt;</span> : null}
                 <span className="site-header__title-current">{visibleTitleCurrent}</span>
               </span>
             </div>
