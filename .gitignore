@@ -1,8 +1,12 @@
 node_modules
+.env
+.env.*
+!.env.example
 .next
 out
 .turbo
 dist
 .DS_Store
 coverage
+certs/
 data/

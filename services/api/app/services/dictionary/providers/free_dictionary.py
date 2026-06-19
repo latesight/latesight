@@ -111,7 +111,7 @@ class FreeDictionaryProvider:
                         continue
 
                     example = (definition.get("example") or "").strip()
-                    definitions.append(DefinitionItem(en=definition_text, zh="", example=example))
+                    definitions.append(DefinitionItem(en=definition_text, zh="", example=example, example_zh=""))
 
                     for synonym in definition.get("synonyms", []):
                         if synonym:
@@ -191,6 +191,7 @@ class FreeDictionaryProvider:
                         en=definition["en"],
                         zh="",
                         example=definition.get("example", ""),
+                        example_zh="",
                     )
                     for definition in meaning["definitions"]
                 ],

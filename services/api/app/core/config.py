@@ -30,6 +30,7 @@ class Settings(BaseSettings):
 
     deepseek_api_key: str = Field(default="", alias="DEEPSEEK_API_KEY")
     deepseek_base_url: str = Field(default="https://api.deepseek.com", alias="DEEPSEEK_BASE_URL")
+    deepseek_model: str = Field(default="deepseek-v4-flash", alias="DEEPSEEK_MODEL")
 
     dictionary_provider: str = Field(default="free_dictionary", alias="DICTIONARY_PROVIDER")
     merriam_webster_api_key: str = Field(default="", alias="MERRIAM_WEBSTER_API_KEY")

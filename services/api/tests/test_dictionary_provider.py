@@ -33,5 +33,6 @@ def test_normalize_dictionary_entry() -> None:
     assert result.audio_url == "https://audio.example/resilience.mp3"
     assert result.meanings[0].part_of_speech == "noun"
     assert result.meanings[0].definitions[0].example == "Resilience matters when conditions change."
+    assert result.meanings[0].definitions[0].example_zh == ""
     assert result.synonyms == ["toughness", "adaptability"]
     assert result.antonyms == ["fragility"]

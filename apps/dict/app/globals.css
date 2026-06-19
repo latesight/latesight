@@ -4,15 +4,6 @@
   gap: 20px;
 }
 
-.field-label {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--color-muted);
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-meta);
-}
-
 .search-row {
   display: flex;
   gap: 12px;
@@ -138,6 +129,22 @@
   color: var(--color-muted);
 }
 
+.pronunciation-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(17, 19, 23, 0.78);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.pronunciation-button:hover,
+.pronunciation-button:focus-visible {
+  color: var(--color-ink);
+}
+
 .meaning-list {
   display: grid;
   gap: 16px;
@@ -158,10 +165,19 @@
   margin: 0;
 }
 
+.definition-english {
+  margin-top: 8px !important;
+  color: var(--color-muted);
+}
+
 .definition-example {
   margin-top: 8px !important;
   color: var(--color-muted);
   font-style: italic;
+}
+
+.definition-example--english {
+  font-size: 0.95rem;
 }
 
 .support-grid {
@@ -182,24 +198,6 @@
   border: 1px dashed var(--color-line-strong);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.46);
-}
-
-.dict-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.dict-metric h3 {
-  margin: 10px 0 8px;
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
-}
-
-.dict-metric p:last-child {
-  margin: 0;
-  color: var(--color-muted);
-  line-height: var(--leading-body);
 }
 
 @media (max-width: 640px) {

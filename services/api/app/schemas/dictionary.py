@@ -9,6 +9,7 @@ class DefinitionItem(BaseModel):
     en: str
     zh: str = ""
     example: str = ""
+    example_zh: str = ""
 
 
 class MeaningItem(BaseModel):

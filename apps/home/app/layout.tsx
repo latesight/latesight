@@ -12,17 +12,11 @@ export const metadata: Metadata = {
 };
 
 const headerLinks = [
-  { label: "Index", href: "#index" },
-  { label: "Sites", href: "#sites" },
-  { label: "About", href: "#about" },
   { label: "Dictionary", href: "https://dict.latesight.com" }
 ];
 
 const footerLinks = [
-  { label: "Main", href: "/" },
-  { label: "Dictionary", href: "https://dict.latesight.com" },
-  { label: "Status", href: "#sites" },
-  { label: "Docs", href: "#about" }
+  { label: "Dictionary", href: "https://dict.latesight.com" }
 ];
 
 export default function RootLayout({
@@ -35,14 +29,12 @@ export default function RootLayout({
       <body>
         <div className="site-shell">
           <SiteHeader
-            siteLabel="Latesight Network"
-            sectionLabel="Index"
             links={headerLinks}
             logoHref="/"
           />
           {children}
           <SiteFooter
-            summary="Latesight is a personal network of focused tools and compact information sites."
+            summary="Latesight is a minimal entry point for focused tools."
             legal="Copyright © 2026 Latesight. All rights reserved."
             links={footerLinks}
           />

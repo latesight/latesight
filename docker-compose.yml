@@ -3,9 +3,9 @@ services:
     image: postgres:16-alpine
     container_name: latesight-postgres
     environment:
-      POSTGRES_DB: latesight
-      POSTGRES_USER: latesight
-      POSTGRES_PASSWORD: change-me
+      POSTGRES_DB: ${POSTGRES_DB:-latesight}
+      POSTGRES_USER: ${POSTGRES_USER:-latesight}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U latesight -d latesight"]
       interval: 10s
@@ -36,21 +36,22 @@ services:
       valkey:
         condition: service_started
     environment:
-      APP_ENV: production
-      APP_HOST: 0.0.0.0
-      APP_PORT: 8000
-      POSTGRES_HOST: postgres
-      POSTGRES_PORT: 5432
-      POSTGRES_DB: latesight
-      POSTGRES_USER: latesight
-      POSTGRES_PASSWORD: change-me
-      VALKEY_HOST: valkey
-      VALKEY_PORT: 6379
-      VALKEY_PASSWORD: ""
-      DEEPSEEK_API_KEY: ""
-      DEEPSEEK_BASE_URL: https://api.deepseek.com
-      DICTIONARY_PROVIDER: free_dictionary
-      MERRIAM_WEBSTER_API_KEY: ""
+      APP_ENV: ${APP_ENV:-production}
+      APP_HOST: ${APP_HOST:-0.0.0.0}
+      APP_PORT: ${APP_PORT:-8000}
+      POSTGRES_HOST: ${POSTGRES_HOST:-postgres}
+      POSTGRES_PORT: ${POSTGRES_PORT:-5432}
+      POSTGRES_DB: ${POSTGRES_DB:-latesight}
+      POSTGRES_USER: ${POSTGRES_USER:-latesight}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+      VALKEY_HOST: ${VALKEY_HOST:-valkey}
+      VALKEY_PORT: ${VALKEY_PORT:-6379}
+      VALKEY_PASSWORD: ${VALKEY_PASSWORD:-}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-v4-flash}
+      DICTIONARY_PROVIDER: ${DICTIONARY_PROVIDER:-free_dictionary}
+      MERRIAM_WEBSTER_API_KEY: ${MERRIAM_WEBSTER_API_KEY:-}
     expose:
       - "8000"
     restart: unless-stopped

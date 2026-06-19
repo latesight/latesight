@@ -12,6 +12,7 @@ from app.services.dictionary.cache import (
     record_dictionary_search,
     set_cached_dictionary_entry,
 )
+from app.services.dictionary.deepseek import DeepSeekDictionaryEnricher, DictionaryEnrichmentError
 from app.services.dictionary.providers.free_dictionary import (
     DictionaryProviderError,
     DictionaryWordNotFoundError,
@@ -62,6 +63,11 @@ async def search_dictionary(word: str) -> DictionarySearchResponse:
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="Dictionary provider is temporarily unavailable.",
         ) from exc
+
+    try:
+        result = await DeepSeekDictionaryEnricher().enrich(result)
+    except DictionaryEnrichmentError:
+        pass
 
     await set_cached_dictionary_entry(normalized, result)
     await record_dictionary_search(normalized)
