@@ -10,7 +10,7 @@ POPULAR_SEARCHES_KEY = "dict:popular_searches"
 
 
 def _cache_key(word: str) -> str:
-    return f"dict:v2:word:{word.strip().lower()}"
+    return f"dict:v3:word:{word.strip().lower()}"
 
 
 async def get_cached_dictionary_entry(word: str) -> Optional[DictionarySearchResponse]:

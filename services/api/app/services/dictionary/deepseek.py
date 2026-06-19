@@ -31,6 +31,25 @@ class DeepSeekDictionaryEnricher:
         return self._apply_translation_payload(entry, payload)
 
     async def _request_translation_payload(self, entry: DictionarySearchResponse) -> dict:
+        compact_entry = {
+            "word": entry.word,
+            "meanings": [
+                {
+                    "part_of_speech": meaning.part_of_speech,
+                    "definitions": [
+                        {
+                            "en": definition.en,
+                            "example": definition.example,
+                        }
+                        for definition in meaning.definitions
+                    ],
+                }
+                for meaning in entry.meanings
+            ],
+            "learning_tip_en": entry.learning_tip,
+            "synonyms_en": entry.synonyms[:8],
+            "antonyms_en": entry.antonyms[:8],
+        }
         messages = [
             {
                 "role": "system",
@@ -51,7 +70,7 @@ class DeepSeekDictionaryEnricher:
                             "definition must align by index with the input definitions. Each definition object must "
                             "contain zh and example_zh."
                         ),
-                        "entry": entry.model_dump(mode="json"),
+                        "entry": compact_entry,
                     },
                     ensure_ascii=False,
                 ),
@@ -71,7 +90,7 @@ class DeepSeekDictionaryEnricher:
         }
 
         try:
-            async with httpx.AsyncClient(timeout=20.0) as client:
+            async with httpx.AsyncClient(timeout=40.0) as client:
                 response = await client.post(
                     f"{self._base_url}/chat/completions",
                     headers=headers,
