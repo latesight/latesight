@@ -14,9 +14,10 @@
   align-items: center;
   gap: 12px;
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 .home-site-title__dot {
