@@ -255,11 +255,14 @@ export function DictionarySearch() {
               <h2>{result.word}</h2>
             </div>
             <div className="result-meta">
-              {result.phonetic ? <span>{result.phonetic}</span> : null}
-              {result.audio_url ? (
-                <button className="pronunciation-button" type="button" onClick={handlePronunciationPlay}>
-                  {isPlayingAudio ? "播放中..." : "发音"}
-                </button>
+              {result.phonetic ? (
+                result.audio_url ? (
+                  <button className="pronunciation-button" type="button" onClick={handlePronunciationPlay}>
+                    {isPlayingAudio ? "播放中..." : result.phonetic}
+                  </button>
+                ) : (
+                  <span>{result.phonetic}</span>
+                )
               ) : null}
             </div>
           </div>

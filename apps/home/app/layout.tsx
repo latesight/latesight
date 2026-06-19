@@ -29,12 +29,12 @@ export default function RootLayout({
       <body>
         <div className="site-shell">
           <SiteHeader
+            slogan="毅一世, 舞一时"
             links={headerLinks}
             logoHref="/"
           />
           {children}
           <SiteFooter
-            summary="Latesight is a minimal entry point for focused tools."
             legal="Copyright © 2026 Latesight. All rights reserved."
             links={footerLinks}
           />

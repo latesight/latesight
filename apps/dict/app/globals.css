@@ -138,6 +138,7 @@
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--transition-fast);
+  font: inherit;
 }
 
 .pronunciation-button:hover,

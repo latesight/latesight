@@ -31,7 +31,7 @@ All first-party sites under the Latesight network should feel related through:
 
 - Shared logo treatment
 - Shared header behavior
-- Shared header title pattern: `latesight > current-site`
+- Shared header title pattern: `Latesight > Product Name`
 - Shared favicon and Apple touch icon sourced from the site logo
 - Shared footer behavior
 - Shared type hierarchy
@@ -120,6 +120,7 @@ Recommended usage:
 - Headline: bold sans-serif
 - Body: neutral sans-serif
 - Metadata: restrained monospace or tightly tracked sans-serif
+- Use English punctuation marks consistently in UI copy, including Chinese text contexts when punctuation is needed
 
 ## Layout
 
@@ -154,15 +155,19 @@ Reference direction:
 Should include:
 
 - Logo
+- Optional bold slogan immediately following the logo on the home site when a stable brand line is needed
 - Optional network/site label
-- Breadcrumb-style title in the form `latesight > site-key` for every secondary site
+- Breadcrumb-style title in the form `Latesight > Product Name` for every secondary site
 - Small set of text navigation items
 
 Header title rule:
 
 - The home site may use its own index-oriented title treatment.
-- Every secondary site must use `latesight > current-site`.
-- `current-site` should be a short lowercase site key such as `dict`, `admin`, or future tool identifiers.
+- If the home site uses a slogan after the logo, keep it short, bold, and typographically aligned with the wordmark.
+- Every secondary site must use `Latesight > Product Name`.
+- Use the human-facing product name in header and browser tab title, for example `Latesight > Word Lens`.
+- Internal site keys such as `dict`, `admin`, or future tool identifiers may exist in routes and config, but should not surface in the visible header title.
+- Header title and browser tab title should stay consistent for every secondary site.
 - This title pattern is part of the brand shell, not an optional local customization.
 
 Should not include:

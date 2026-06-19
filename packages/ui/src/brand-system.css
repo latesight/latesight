@@ -72,6 +72,16 @@ select {
   min-width: 0;
 }
 
+.site-header__slogan {
+  color: var(--color-ink);
+  font-family: "Avenir Next", "PingFang SC", var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .brand-logo {
   display: inline-flex;
   align-items: center;
@@ -119,7 +129,6 @@ select {
 .site-header__title-root {
   color: rgba(17, 19, 23, 0.56);
   font-weight: 500;
-  text-transform: lowercase;
 }
 
 .site-header__title-separator {
@@ -129,7 +138,6 @@ select {
 
 .site-header__title-current {
   color: var(--color-ink);
-  text-transform: lowercase;
 }
 
 .site-nav {
@@ -349,6 +357,10 @@ select {
     align-items: flex-start;
     flex-direction: column;
     padding: 18px 0;
+  }
+
+  .site-header__brand {
+    flex-wrap: wrap;
   }
 
   .site-nav {

@@ -4,3 +4,18 @@
   color: var(--color-muted);
   line-height: var(--leading-body);
 }
+
+.home-site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 12px;
+}
+
+.home-site-title__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-accent-red);
+  flex: 0 0 auto;
+}
