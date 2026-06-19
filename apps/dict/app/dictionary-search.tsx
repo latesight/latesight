@@ -189,7 +189,6 @@ export function DictionarySearch() {
     if (!hasInteractedRef.current) {
       hasInteractedRef.current = true;
       setWord("");
-      setResult(null);
     }
   }
 
@@ -199,7 +198,6 @@ export function DictionarySearch() {
     const normalized = word.trim();
     if (!normalized) {
       setError("请输入要查询的单词。");
-      setResult(null);
       return;
     }
 
@@ -318,8 +316,8 @@ export function DictionarySearch() {
                 <p className="meta-label">{getPartOfSpeechLabel(meaning.part_of_speech)}</p>
                 {meaning.definitions.map((definition) => (
                   <div className="definition-block" key={definition.en}>
-                    <p>{definition.zh || definition.en}</p>
-                    {definition.zh ? <p className="definition-english">{definition.en}</p> : null}
+                    <p>{definition.en}</p>
+                    {definition.zh ? <p className="definition-chinese">{definition.zh}</p> : null}
                     {definition.example ? (
                       <p className="definition-example">
                         Example: {definition.example_zh || definition.example}
