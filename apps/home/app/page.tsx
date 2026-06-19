@@ -9,8 +9,8 @@ export default function HomePage() {
             <h2 className="home-site-title">
               <span className="home-site-title__dot" aria-hidden="true" />
               <span>Word Lens</span>
+              <span className="home-site-domain">dict.latesight.com</span>
             </h2>
-            <span className="home-site-domain">dict.latesight.com</span>
           </a>
         </div>
       </section>
