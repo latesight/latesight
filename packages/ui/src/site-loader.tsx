@@ -12,7 +12,7 @@ const loaderDotColors = [
   "#ff2f4f"
 ] as const;
 
-const LOADER_DURATION_MS = 1680;
+const LOADER_DURATION_MS = 2280;
 const MOVE_STAGGER_RATIO = 0.075;
 const MOVE_WINDOW_RATIO = 0.2;
 const RETURN_START_RATIO = 0.5;
@@ -86,14 +86,11 @@ export function SiteLoader() {
 
         const offsetRatio = getDotOffset(progress, index, loaderDotColors.length);
         const offset = offsetRatio * trackTravel;
-        const emphasis = 0.3 + (offsetRatio * 0.7);
-        const scale = 0.76 + (offsetRatio * 0.24);
-        const glowSize = offsetRatio * 8;
-        const glowStrength = 26 + (offsetRatio * 22);
+        const emphasis = 0.34 + (offsetRatio * 0.66);
+        const scale = 0.82 + (offsetRatio * 0.12);
 
         dot.style.transform = `translate3d(${(index * packStep) + offset}px, 0, 0) scale(${scale})`;
-        dot.style.opacity = `${0.34 + (emphasis * 0.66)}`;
-        dot.style.boxShadow = `0 0 0 ${glowSize}px color-mix(in srgb, var(--loader-dot-color) ${glowStrength}%, transparent)`;
+        dot.style.opacity = `${emphasis}`;
       });
 
       animationFrame = window.requestAnimationFrame(render);

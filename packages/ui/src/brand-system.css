@@ -287,9 +287,8 @@ select {
   border-radius: 999px;
   background: var(--loader-dot-color);
   opacity: 0.34;
-  transform: translate3d(0, 0, 0) scale(0.76);
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-dot-color) 34%, transparent);
-  will-change: transform, opacity, box-shadow;
+  transform: translate3d(0, 0, 0) scale(0.82);
+  will-change: transform, opacity;
 }
 
 @media (max-width: 640px) {
